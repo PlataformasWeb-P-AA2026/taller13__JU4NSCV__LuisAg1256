@@ -3,14 +3,12 @@
 {% block content %}
 <section class="hero">
   <div class="hero-info">
-    <span class="badge">Administración Web</span>
-
-    <h1>Gestión de Edificios y Departamentos</h1>
-
+    <span class="badge">Gestión Inmobiliaria</span>
+    <h1>Administración de Edificios y Departamentos</h1>
     <p>
-      Accede al panel de control para administrar los registros de tus edificios residenciales o comerciales y los departamentos asociados a ellos.
+      Plataforma interactiva para el control, registro y visualización de edificios urbanos
+      y sus respectivos departamentos.
     </p>
-
     <div class="hero-buttons">
       <a href="{{ url_for('los_edificios') }}" class="btn primary">Ver Edificios</a>
       <a href="{{ url_for('los_departamentos') }}" class="btn secondary">Ver Departamentos</a>
@@ -18,36 +16,36 @@
   </div>
 
   <div class="hero-box">
-    <span class="mini-badge">Atajo rápido</span>
-    <h2>Crear</h2>
-    <p>
-        <a href="{{ url_for('crear_edificio') }}" style="color:white; text-decoration: underline;">Nuevo Edificio</a><br><br>
-        <a href="{{ url_for('crear_departamento') }}" style="color:white; text-decoration: underline;">Nuevo Departamento</a>
-    </p>
+    <span class="mini-badge">Resumen</span>
+    <h2>{{ total_edificios }}</h2>
+    <p>Edificios registrados en el sistema actualmente.</p>
   </div>
 </section>
 
 <section class="cards-section">
-  <h2><span>+</span> Funciones Disponibles</h2>
-
+  <h2><span>Estadísticas</span> generales</h2>
   <div class="cards">
     <article class="card">
       <span class="icon">🏢</span>
-      <h3>Control de Edificios</h3>
-      <p>Registra nombre, dirección, ciudad y el tipo de establecimiento.</p>
+      <h3>Edificios</h3>
+      <p>Total de edificios comerciales y residenciales: <strong class="yellow">{{ total_edificios }}</strong></p>
     </article>
 
     <article class="card">
-      <span class="icon">🏠</span>
+      <span class="icon">🔑</span>
       <h3>Departamentos</h3>
-      <p>Administra propietarios, costos, cuartos y vincúlalos a un edificio.</p>
-    </article>
-
-    <article class="card">
-      <span class="icon">🔒</span>
-      <h3>Seguridad</h3>
-      <p>Conexión segura vía API REST usando Token de autenticación.</p>
+      <p>Departamentos registrados en el sistema: <strong class="yellow">{{ total_departamentos }}</strong></p>
     </article>
   </div>
+</section>
+
+<section class="list-section">
+  <h2>Funcionalidades del Sistema</h2>
+  <ul class="modern-list">
+    <li>Consumo de datos en tiempo real mediante requests a API REST de Django.</li>
+    <li>Creación rápida de edificios y departamentos desde formularios en Flask.</li>
+    <li>Asociación directa de departamentos a edificios mediante la URL de la API.</li>
+    <li>Protección de comunicación a través de Token Authentication.</li>
+  </ul>
 </section>
 {% endblock %}

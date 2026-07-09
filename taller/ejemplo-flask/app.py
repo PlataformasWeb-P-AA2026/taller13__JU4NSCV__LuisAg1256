@@ -15,7 +15,23 @@ headers = {
 def index():
     """
     """
-    return render_template("index.html")
+    total_edificios = 0
+    total_departamentos = 0
+
+    try:
+        r_edificios = requests.get(f"http://localhost:8000/api/edificios/", headers=headers)
+        if r_edificios.status_code == 200:
+            total_edificios = json.loads(r_edificios.content).get('count', 0)
+            
+        r_departamentos = requests.get(f"http://localhost:8000/api/departamentos/", headers=headers)
+        if r_departamentos.status_code == 200:
+            total_departamentos = json.loads(r_departamentos.content).get('count', 0)
+    except:
+        pass
+
+    return render_template("index.html", 
+                           total_edificios=total_edificios, 
+                           total_departamentos=total_departamentos)
 
 
 @app.route("/los/edificios")

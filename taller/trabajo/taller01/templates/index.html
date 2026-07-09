@@ -1,0 +1,55 @@
+{% extends "master.html" %}
+
+{% block title %}
+Inicio - Administración UTPL
+{% endblock %}
+
+{% block content %}
+<section class="hero">
+  <div class="hero-info">
+    <span class="badge">Gestión Inmobiliaria</span>
+    <h1>Administración de Edificios y Departamentos</h1>
+    <p>
+      Plataforma interactiva para el control, registro y visualización de edificios urbanos
+      y sus respectivos departamentos.
+    </p>
+    <div class="hero-buttons">
+      <a href="{% url 'listar_edificios' %}" class="btn primary">Ver Edificios</a>
+      <a href="{% url 'listar_departamentos' %}" class="btn secondary">Ver Departamentos</a>
+    </div>
+  </div>
+
+  <div class="hero-box">
+    <span class="mini-badge">Resumen</span>
+    <h2>{{ total_edificios }}</h2>
+    <p>Edificios registrados en el sistema actualmente.</p>
+  </div>
+</section>
+
+<section class="cards-section">
+  <h2><span>Estadísticas</span> generales</h2>
+  <div class="cards">
+    <article class="card">
+      <span class="icon">🏢</span>
+      <h3>Edificios</h3>
+      <p>Total de edificios comerciales y residenciales: <strong class="yellow">{{ total_edificios }}</strong></p>
+    </article>
+
+    <article class="card">
+      <span class="icon">🔑</span>
+      <h3>Departamentos</h3>
+      <p>Departamentos registrados en el sistema: <strong class="yellow">{{ total_departamentos }}</strong></p>
+    </article>
+  </div>
+</section>
+
+<section class="list-section">
+  <h2>Funcionalidades del Sistema</h2>
+  <ul class="modern-list">
+    <li>Listado y filtrado interactivo con búsqueda en tiempo real usando DataTables.</li>
+    <li>Gestión completa mediante la interfaz de administración nativa de Django.</li>
+    <li>Asociación directa de departamentos a edificios.</li>
+    <li>Preparado para la integración y consumo vía APIs REST.</li>
+  </ul>
+</section>
+{% endblock %}

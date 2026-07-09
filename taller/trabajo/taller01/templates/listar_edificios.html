@@ -1,0 +1,59 @@
+{% extends "master.html" %}
+
+{% block title %}
+Listado de Edificios - Administración UTPL
+{% endblock %}
+
+{% block content %}
+<section class="table-section">
+  <h2>Listado de Edificios</h2>
+
+  <table id="tabla_edificios" class="display">
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Dirección</th>
+        <th>Ciudad</th>
+        <th>Tipo</th>
+        <th>Total Departamentos</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for edificio in edificios %}
+      <tr>
+        <td><strong class="yellow">{{ edificio.nombre }}</strong></td>
+        <td>{{ edificio.direccion }}</td>
+        <td>{{ edificio.ciudad }}</td>
+        <td>{{ edificio.get_tipo_display }}</td>
+        <td>{{ edificio.departamentos.count }}</td>
+      </tr>
+      {% empty %}
+      <tr>
+        <td colspan="5" style="text-align: center;">No hay edificios registrados en el sistema.</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</section>
+
+<script type="text/javascript">
+  $(document).ready(function () {
+    $('#tabla_edificios').DataTable({
+      "language": {
+        "lengthMenu": "Mostrar _MENU_ registros por página",
+        "zeroRecords": "No se encontraron resultados",
+        "info": "Mostrando página _PAGE_ de _PAGES_",
+        "infoEmpty": "No hay registros disponibles",
+        "infoFiltered": "(filtrado de _MAX_ registros totales)",
+        "search": "Buscar:",
+        "paginate": {
+          "first": "Primero",
+          "last": "Último",
+          "next": "Siguiente",
+          "previous": "Anterior"
+        }
+      }
+    });
+  });
+</script>
+{% endblock %}

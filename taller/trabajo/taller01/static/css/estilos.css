@@ -1,0 +1,372 @@
+:root {
+  --azul-fondo: #004b75;
+  --azul-profundo: #003f63;
+  --azul-card: #155c85;
+  --azul-hover: #1d6f9e;
+  --amarillo: #ffbf00;
+  --blanco: #ffffff;
+  --texto-suave: #d8edf7;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background:
+    radial-gradient(circle at top right, rgba(255, 191, 0, 0.18), transparent 30%),
+    linear-gradient(135deg, var(--azul-fondo), var(--azul-profundo));
+  color: var(--blanco);
+}
+
+.header {
+  width: 90%;
+  margin: auto;
+  padding: 28px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 42px;
+  font-weight: 900;
+  letter-spacing: 2px;
+}
+
+.menu {
+  display: flex;
+  gap: 28px;
+}
+
+.menu a {
+  color: var(--texto-suave);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.menu a:hover {
+  color: var(--amarillo);
+}
+
+.hero {
+  width: 90%;
+  margin: 70px auto;
+  display: grid;
+  grid-template-columns: 1.4fr 0.6fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.badge,
+.mini-badge {
+  display: inline-block;
+  background: rgba(255, 191, 0, 0.15);
+  color: var(--amarillo);
+  padding: 8px 16px;
+  border-radius: 30px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.hero h1 {
+  font-size: clamp(42px, 6vw, 80px);
+  line-height: 1;
+  margin-bottom: 24px;
+}
+
+.hero p {
+  color: var(--texto-suave);
+  font-size: 20px;
+  max-width: 700px;
+}
+
+.hero-buttons {
+  margin-top: 35px;
+  display: flex;
+  gap: 18px;
+}
+
+.btn {
+  padding: 15px 26px;
+  border-radius: 40px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.primary {
+  background: var(--amarillo);
+  color: var(--azul-profundo);
+}
+
+.secondary {
+  border: 1px solid var(--texto-suave);
+  color: var(--blanco);
+}
+
+.hero-box,
+.card,
+form,
+.table-section,
+.list-section {
+  background: rgba(21, 92, 133, 0.86);
+  border-radius: 24px;
+  padding: 34px;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.22);
+}
+
+.hero-box h2 {
+  font-size: 64px;
+  color: var(--amarillo);
+}
+
+.cards-section,
+.list-section,
+.table-section,
+.form-section {
+  width: 90%;
+  margin: 80px auto;
+}
+
+.cards-section h2,
+.list-section h2,
+.table-section h2,
+.form-section h2 {
+  font-size: 38px;
+  margin-bottom: 30px;
+}
+
+.cards-section h2 span {
+  color: var(--amarillo);
+  font-size: 58px;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+}
+
+.card {
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  background: var(--azul-hover);
+}
+
+.icon {
+  display: grid;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  background: var(--amarillo);
+  color: var(--azul-profundo);
+  border-radius: 50%;
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.card h3 {
+  font-size: 24px;
+  margin-bottom: 14px;
+}
+
+.card p {
+  color: var(--texto-suave);
+  font-size: 17px;
+}
+
+.modern-list {
+  list-style: none;
+}
+
+.modern-list li {
+  padding: 16px 0 16px 36px;
+  position: relative;
+  color: var(--texto-suave);
+  font-size: 18px;
+}
+
+.modern-list li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: var(--amarillo);
+  font-weight: bold;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  overflow: hidden;
+  border-radius: 18px;
+}
+
+thead {
+  background: var(--amarillo);
+  color: var(--azul-profundo);
+}
+
+th,
+td {
+  padding: 18px;
+  text-align: left;
+}
+
+tbody tr {
+  background: rgba(255, 255, 255, 0.07);
+}
+
+tbody tr:nth-child(even) {
+  background: rgba(255, 255, 255, 0.13);
+}
+
+/* Forzar color negro para el texto dentro de la tabla para que sea legible sobre el fondo blanco */
+table.dataTable tbody tr,
+table.dataTable tbody td,
+table.dataTable td,
+table.dataTable td strong,
+table.dataTable td .yellow {
+  color: #212529 !important;
+}
+
+/* El cabezal de la tabla (thead) sigue siendo oscuro sobre el fondo amarillo */
+table.dataTable thead th,
+table.dataTable thead td {
+  color: var(--azul-profundo) !important;
+}
+
+/* DataTables Styling Overrides to integrate with our custom styling */
+.dataTables_wrapper {
+  background: rgba(21, 92, 133, 0.86);
+  padding: 20px;
+  border-radius: 18px;
+  color: var(--blanco) !important;
+}
+
+.dataTables_wrapper .dataTables_length,
+.dataTables_wrapper .dataTables_filter,
+.dataTables_wrapper .dataTables_info,
+.dataTables_wrapper .dataTables_processing,
+.dataTables_wrapper .dataTables_paginate {
+  color: var(--blanco) !important;
+  margin-bottom: 15px;
+}
+
+.dataTables_wrapper .dataTables_filter input {
+  border: 1px solid var(--texto-suave);
+  border-radius: 8px;
+  padding: 5px 10px;
+  background-color: var(--blanco);
+  color: var(--azul-profundo);
+  margin-left: 10px;
+}
+
+.dataTables_wrapper .dataTables_length select {
+  border: 1px solid var(--texto-suave);
+  border-radius: 8px;
+  padding: 5px;
+  background-color: var(--blanco);
+  color: var(--azul-profundo);
+  margin: 0 5px;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button {
+  color: var(--blanco) !important;
+  border-radius: 8px;
+  border: 1px solid transparent !important;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button.current,
+.dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
+  background: var(--amarillo) !important;
+  color: var(--azul-profundo) !important;
+  border: 1px solid var(--amarillo) !important;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+  background: var(--azul-hover) !important;
+  color: var(--blanco) !important;
+}
+
+.yellow {
+  color: var(--amarillo);
+  font-weight: bold;
+}
+
+form {
+  max-width: 700px;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 15px;
+  margin-bottom: 22px;
+  border: none;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.95);
+  color: #003f63;
+  font-size: 16px;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: 3px solid var(--amarillo);
+}
+
+button {
+  background: var(--amarillo);
+  color: var(--azul-profundo);
+  border: none;
+  padding: 15px 28px;
+  border-radius: 40px;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+button:hover {
+  transform: scale(1.04);
+}
+
+footer {
+  text-align: center;
+  padding: 35px;
+  color: var(--texto-suave);
+}
+
+@media (max-width: 850px) {
+
+  .header,
+  .menu {
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .hero,
+  .cards {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+  }
+
+  table {
+    font-size: 14px;
+  }
+}

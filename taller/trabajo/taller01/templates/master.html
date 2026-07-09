@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- jQuery and DataTables for interactive tables -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/estilos.css' %}">
+
+    <title>
+      {% block title %}UTPL - Administración de Edificios{% endblock %}
+    </title>
+  </head>
+  <body>
+    <header class="header">
+      <div class="logo">UTPL</div>
+      <nav class="menu">
+        <a href="{% url 'index' %}">Inicio</a>
+        <a href="{% url 'listar_edificios' %}">Edificios</a>
+        <a href="{% url 'listar_departamentos' %}">Departamentos</a>
+        <a href="/admin/" target="_blank">Admin Django</a>
+      </nav>
+    </header>
+
+    <main>
+      {% block content %}
+      {% endblock %}
+    </main>
+
+    <footer>
+      <p>Loja - Ecuador</p>
+      <p>© {% now "Y" %} UTPL Future. Todos los derechos reservados.</p>
+    </footer>
+  </body>
+</html>
